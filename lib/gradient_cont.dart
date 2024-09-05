@@ -1,33 +1,32 @@
-
-
+import 'package:dice/dice_roller.dart';
 import 'package:dice/styled_text.dart';
 import 'package:flutter/material.dart';
-
 
 var startAlignment = Alignment.topLeft;
 var endAlignment = Alignment.topRight;
 
 class GradientContainer extends StatelessWidget {
- const GradientContainer(this.color1, this.color2, {super.key});
+  const GradientContainer(this.color1, this.color2, {super.key});
 
- const GradientContainer.purple({super.key}) : color1 = Colors.deepPurple, color2 = Colors.indigo;
+  const GradientContainer.purple({super.key})
+      : color1 = Colors.deepPurple,
+        color2 = Colors.indigo;
 
-final Color color1;
-final Color color2;
+
+  final Color color1;
+  final Color color2;
+
+
   @override
-  
   Widget build(BuildContext context) {
     return Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [color1, color2], 
-                begin: startAlignment,
-                end: endAlignment),
-          ),
-          child: Center(
-            child: Image.asset('assets/images/dice-1.png', width: 200,),
-          ),
-        );
-    
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [color1, color2], begin: startAlignment, end: endAlignment),
+      ),
+      child: const Center(
+        child: DiceRoller(),
+      ),
+    );
   }
 }
